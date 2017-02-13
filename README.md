@@ -38,18 +38,30 @@ Here are 2 images - once undistorted and once distorted. The undistorted version
 ##Pipeline (single images)
 ###1. Provide an example of a distortion-corrected image.
 
-The output images of tests with images are stored in the folder output_images
+The output images of tests with images are stored in the folder **output_images**
 
-IMAGE
+This image is distorted
+![distorted](./output_images/1-1-distorted.jpg)
 
-IMAGE
+This is the same image but undistorted
+![distorted](./output_images/1-2-undistorted.jpg)
+
+
 ###3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
-This part of the process is being performed in the script step_4_perspective_transform.py 
 
-First we get warp parameters and then we apply these warp parameters to the image in the method warp(). The Warp parameters used in method get_warp_params() were inserted manually. 
+This part of the process is being performed in the script **step_4_perspective_transform.py** 
 
-2-3-HLS_Sobel.jpg
-2-4-warped.jpg
+First we get warp parameters and then we apply these warp parameters to the image in the method `warp()`. The Warp parameters used in method `get_warp_params()` were inserted manually. 
+
+
+Before perspective transfor (warp)
+![2-3-HLS_Sobel.jpg](./output_images/2-3-HLS_Sobel.jpg)
+
+After perspective transfor (warp)
+![2-4-warped.jpg](./output_images/2-4-warped.jpg)
+
+
+
 ###4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 This happens in script step_5_lane_pixel_and_boundary.py 
 In this file there is a method called def find_lane(binary_warped) 
