@@ -67,31 +67,39 @@ After perspective transfor (warp)
 
 
 ###4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
-This happens in script step_5_lane_pixel_and_boundary.py 
-In this file there is a method called def find_lane(binary_warped) 
-The steps of this method are: 
-Make a histogram horizontally
-Split the histogram in 2 pieces for the left lane and for the right lane
-Using the histogram data identify where most non-zero pixels are. The location of the most non-zero pixels is the start of the lane. 
-We draw rectangles on the area with highest density of non-zero pixels and then on top to this rectangle the next rectangle until we reach the top of the image. We need to adjust the position of the rectangles depending on the frequency of the non-zero pixels. 
-In the line np.polyfit(lefty, leftx, 2) we draw a polynomial using the result of the previous steps. This polynomial represents the curve. 
-###5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
-This happens in the script step_6_curvature.py and function calculate_radius(left_fit, right_fit)
 
-When we created the polyfit in step_5_lane_pixel_and_boundary.py we already took care of the fact that calculation in pixels is not the same like real world meters. This transformation happened at the end of the method find_lane(binary_warped). Now in method calculate_radius(left_fit, right_fit) we apply the mathematical formula to convert a curvature into a radius. 
+This happens in script **step_5_lane_pixel_and_boundary.py** 
+In this file there is a method called `def find_lane(binary_warped) `
+
+The steps of this method are: 
+
+1. Make a histogram horizontally
+2. Split the histogram in 2 pieces for the left lane and for the right lane
+3. Using the histogram data identify where most non-zero pixels are. The location of the most non-zero pixels is the start of the lane. 
+4. We draw rectangles on the area with highest density of non-zero pixels and then on top to this rectangle the next rectangle until we reach the top of the image. We need to adjust the position of the rectangles depending on the frequency of the non-zero pixels. 
+5. In the line np.polyfit(lefty, leftx, 2) we draw a polynomial using the result of the previous steps. This polynomial represents the curve. 
+
+
+###5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+
+This happens in the script **step_6_curvature.py** and function `calculate_radius(left_fit, right_fit)`
+
+When we created the polyfit in **step_5_lane_pixel_and_boundary.py** we already took care of the fact that calculation in pixels is not the same like real world meters. This transformation happened at the end of the method find_lane(binary_warped). Now in method `calculate_radius(left_fit, right_fit)` we apply the mathematical formula to convert a curvature into a radius. 
+
 At the end of this method we prepare a text that contains the radius in meters. We will use this text later to write on the image. Therefore the method returns this text. 
 
-The position of the vehicle on the lane is calculated in method find_lane(binary_warped) in file step_5_lane_pixel_and_boundary.py in these lines
+The position of the vehicle on the lane is calculated in method find_lane(binary_warped) in file **step_5_lane_pixel_and_boundary.py** in these lines
 
-    #calculate position of car relative to lanes    
-    position_of_car = (rightx_base - leftx_base) / 2 + leftx_base
-    # calculate shift from midpoint and convert pixels to meters
-    delta_of_car = (midpoint - position_of_car) * xm_per_pix
+`position_of_car = (rightx_base - leftx_base) / 2 + leftx_base   
+delta_of_car = (midpoint - position_of_car) * xm_per_pix `
 
 ###6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-5-5-result.jpg
+Here is an example of the final result. 
 
+![2-4-warped.jpg](./output_images/5-5-result.jpg)
+
+For more iamges showing the pipeline please look into folder **./output_images/**
 
 ##Pipeline (video)
 
