@@ -90,8 +90,10 @@ At the end of this method we prepare a text that contains the radius in meters. 
 
 The position of the vehicle on the lane is calculated in method find_lane(binary_warped) in file **step_5_lane_pixel_and_boundary.py** in these lines
 
-`position_of_car = (rightx_base - leftx_base) / 2 + leftx_base  `
-`delta_of_car = (midpoint - position_of_car) * xm_per_pix `
+```python
+position_of_car = (rightx_base - leftx_base) / 2 + leftx_base
+delta_of_car = (midpoint - position_of_car) * xm_per_pix
+```
 
 ###6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
