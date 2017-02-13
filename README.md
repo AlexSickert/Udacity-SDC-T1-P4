@@ -56,11 +56,11 @@ This part of the process is being performed in the script **step_4_perspective_t
 First we get warp parameters and then we apply these warp parameters to the image in the method `warp()`. The Warp parameters used in method `get_warp_params()` were inserted manually. 
 
 
-Before perspective transfor (warp)
+Before perspective transform (warp)
 
 ![2-3-HLS_Sobel.jpg](./output_images/2-3-HLS_Sobel.jpg)
 
-After perspective transfor (warp)
+After perspective transform (warp)
 
 ![2-4-warped.jpg](./output_images/2-4-warped.jpg)
 
@@ -90,7 +90,8 @@ At the end of this method we prepare a text that contains the radius in meters. 
 
 The position of the vehicle on the lane is calculated in method find_lane(binary_warped) in file **step_5_lane_pixel_and_boundary.py** in these lines
 
-`position_of_car = (rightx_base - leftx_base) / 2 + leftx_base   
+`position_of_car = (rightx_base - leftx_base) / 2 + leftx_base  
+
 delta_of_car = (midpoint - position_of_car) * xm_per_pix `
 
 ###6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
