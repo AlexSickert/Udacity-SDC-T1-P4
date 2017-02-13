@@ -41,9 +41,11 @@ Here are 2 images - once undistorted and once distorted. The undistorted version
 The output images of tests with images are stored in the folder **output_images**
 
 This image is distorted
+
 ![distorted](./output_images/1-1-distorted.jpg)
 
 This is the same image but undistorted
+
 ![distorted](./output_images/1-2-undistorted.jpg)
 
 
@@ -55,9 +57,11 @@ First we get warp parameters and then we apply these warp parameters to the imag
 
 
 Before perspective transfor (warp)
+
 ![2-3-HLS_Sobel.jpg](./output_images/2-3-HLS_Sobel.jpg)
 
 After perspective transfor (warp)
+
 ![2-4-warped.jpg](./output_images/2-4-warped.jpg)
 
 
