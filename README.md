@@ -1,20 +1,4 @@
-# Udacity-SDC-T1-P4
-
-
-
-![1-2-undistorted.jpg](./output_images/1-2-undistorted.jpg)
-
-[LINK TO VIDEO](./output_videos/result-1.mp4)
-
-<a href="https://github.com/AlexSickert/Udacity-SDC-T1-P4/blob/master/output_videos/result-1.mp4?raw=true" target="_blank">LINK TO VIDEO in new tab xx</a>
-
-
---------------------------------------------------------
-
-
-Advanced Lane Finding Project
-** lane and vehicle position with respect to center. **
-
+# Udacity-SDC-T1-P4 - Advanced Lane Finding Project
 
 ##Important General Information
 
@@ -23,15 +7,20 @@ The code for this project is not stored in one file. Instead, the pipeline was b
 ![1-2-undistorted.jpg](./other_images/Screenshot_2017-02-13_22-17-46.png)
 
 
-To run the pipeline for the test images we execute the script step_8_RUN_IMAGES.py and for the videos the file step_9_RUN_VIDEOS.py was used. This allowed building the pipeline step by step and keeping the code clean. 
+To run the pipeline for the test images we execute the script **step_8_RUN_IMAGES.py** and for the videos the file **step_9_RUN_VIDEOS.py** was used. This allowed building the pipeline step by step and keeping the code clean. 
 
 ##Camera Calibration
 ###1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
-The code for this step in the project can be found in step_1_calibrate.py
-We iterate over a number of images that are stored in a folder. Each image shows a chessboard photographed with the same camera like in the car. And each image is being used for calibration. To do that, corners of the image are being marked. This happens in this line of code: 
-cv2.drawChessboardCorners
-We then save for testing pursposes the images in the folder calibration_corners. The images look like this: 
 
+The code for this step in the project can be found in **step_1_calibrate.py**
+
+We iterate over a number of images that are stored in a folder. Each image shows a chessboard photographed with the same camera like in the car. And each image is being used for calibration. To do that, corners of the image are being marked. This happens in this line of code: 
+
+`cv2.drawChessboardCorners()`
+
+We then save for testing pursposes the images in the folder **calibration_corners**. The images look like this: 
+
+![calibration corners](./calibration_corners/1.jpg)
 
 Then the camera is being calibrated in this line of code:
 cv2.calibrateCamera()
@@ -87,7 +76,9 @@ The position of the vehicle on the lane is calculated in method find_lane(binary
 ##Pipeline (video)
 
 ###1. Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
-Here's a ...
+
+There is a link to the video - it should download the file <a href="https://github.com/AlexSickert/Udacity-SDC-T1-P4/blob/master/output_videos/result-1.mp4?raw=true" target="_blank">LINK TO VIDEO</a>. Altenratively, it is located here in the repository under **/output_videos/result-1.mp4**
+
 
 ##Discussion
 
