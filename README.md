@@ -32,7 +32,7 @@ Here are 2 images - once undistorted and once distorted. The undistorted version
 
 ![distorted](./calibration_test/test_image.jpg)
 
-![undistorted](./calibration_corners/test_image_result.jpg)
+![undistorted](./calibration_test/test_image_result.jpg)
 
 
 ##Pipeline (single images)
