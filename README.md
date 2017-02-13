@@ -23,13 +23,17 @@ We then save for testing pursposes the images in the folder **calibration_corner
 ![calibration corners](./calibration_corners/1.jpg)
 
 Then the camera is being calibrated in this line of code:
-cv2.calibrateCamera()
+
+`cv2.calibrateCamera()`
+
 The output of this method is a set of parameters needed to correct/undistort images. We store these parameters in a list so that we can store them later in a pickle file. 
-Here are 2 images - once undistorted and once distorted. The undistorted version is being creted when running the script in file step_8_RUN_IMAGES.py
 
+Here are 2 images - once undistorted and once distorted. The undistorted version is being creted when running the script in file **step_8_RUN_IMAGES.py**
 
+![distorted](./calibration_test/test_image.jpg)
 
-![alt text][image1]
+![undistorted](./calibration_corners/test_image_result.jpg)
+
 
 ##Pipeline (single images)
 ###1. Provide an example of a distortion-corrected image.
