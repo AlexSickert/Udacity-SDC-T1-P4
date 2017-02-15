@@ -114,4 +114,20 @@ There is a link to the video - it should download the file <a href="https://gith
 
 ###1. Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?
 
+One issue is that I am not sure if the curvature I calculated is correct. 
+
+I am also negatively surprised how long it took me to get this simple pipeline running. 
+
+The pipeline works now well on the first video. However, on the other videos is work very bad. I watched the videos where it failed several times and came to a list of improvement actions that have not been implemented but could be implemented. 
+
+1. When the algorithm finds the land boundaries then it uses a histogram. It splits the video image in two pieces - the left and the right part.  This assumes that the left line is always in the left part of the image. However, this might not be the case in a very narrow curve or when the car is too much displaced from the center. In such cases the algorithm fails. A solution could be that this splitting of the center of the road is not fixed a the middle of the image but flexible based on the average of a couple of previous images. 
+2. The pipeline I applied uses Sobel dn HLS space (s channel). But it does not take into account the magnitude and direction of the Sobel gradients. In the first lane finding project I developed an algorithm that measures this and excludes everything that is rather horizontal than vertical. It helped a lot. I simply forgot to implement it here and ran out of time. 
+3. The algorithm uses at various points certain thresholds. I think that these thresholds could be optimized. For that a lot of video frames should be analyzed. It could be that under certain light conditions certain thresholds work better. 
+4. Currently the algorithm uses each image independently from the previous image. However, in reality there are relationships between images. In the first lane finding project I created a smoothing function that calculated the average of the past x images. It helped a lot. In this project the algorithm would be more complex. It would need to follow these steps: 
+  1. Calculate the curvature of current image and continue driving
+  2. The next image can have a curvature only +/- a certain threshold. Also, the location of the lane boundaries cannot make drastic jumps. If there is a jump in just one of the two lane boundaries then ignore the issue and assume the lane did not modify at all and keep driving. If both lanes are jumping then we have an issue. But we wait until the next image until we start searching from scratch with the lane finding procedure. 
+
+I think all the above steps need to be implemented in combination to achieve a really good result. I have not done it because I was busy at work. I know it is a bit of a lame excuse but it's the reality.  
+
+
 
